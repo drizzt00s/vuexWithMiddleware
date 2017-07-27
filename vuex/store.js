@@ -15,6 +15,9 @@ var mutations = {
 	},
 	'DELETE_ITEM':function(state){
 		state.items.pop();
+	},
+	'UPDATE_CONTENT':function(state, content, index){
+		state.items[index].content = content;
 	}
 };
 
@@ -32,5 +35,6 @@ var myMiddleware = {
 export default new Vuex.Store({
 	state,
 	mutations,
-	middlewares:[createLogger()]
+	middlewares:[createLogger()],
+	strict:true
 });
